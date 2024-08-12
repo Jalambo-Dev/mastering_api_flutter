@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mastering_api_flutter/widgets/elevated_button_widget.dart';
+import 'package:mastering_api_flutter/widgets/forget_password_widget.dart';
 import 'package:mastering_api_flutter/widgets/text_form_field_widget.dart';
 import 'package:mastering_api_flutter/widgets/text_header_widget.dart';
 
@@ -33,6 +35,7 @@ class _SignInScreenState extends State<SignInScreen> {
               hintText: "Email Address",
               obscureText: false,
               prefixIcon: Icons.email,
+              textInputType: TextInputType.emailAddress,
             ),
 
             const SizedBox(height: 10),
@@ -42,7 +45,16 @@ class _SignInScreenState extends State<SignInScreen> {
               hintText: "Password",
               obscureText: true,
               prefixIcon: Icons.lock,
+              textInputType: TextInputType.visiblePassword,
             ),
+
+            // Froget Password text button
+            const ForgetPasswordWidget(),
+
+            const SizedBox(height: 10),
+
+            // sign in button
+            const ElevatedButtonWidget(text: "Sign in"),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +65,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 // sign up text button
                 TextButton(
                   onPressed: () => Navigator.pushNamed(context, '/sign_up'),
-                  child: const Text("sign up"),
+                  child: const Text("Sign up"),
                 ),
               ],
             ),
